@@ -19,8 +19,10 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "@material-ui/core": "^1.2.3",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "react-jsx": "^1.0.0"
   }
 }
