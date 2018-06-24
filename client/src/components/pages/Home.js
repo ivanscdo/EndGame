@@ -1,4 +1,5 @@
 import React from "react";
+import Friends from "../Friends";
 
 const Home = () =>
   <div>
@@ -6,6 +7,7 @@ const Home = () =>
     <p>
      Welcome to the EndGame
     </p>
+    <Friends />
   </div>;
 
 export default Home;
