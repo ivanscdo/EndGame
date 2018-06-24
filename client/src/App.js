@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import dotenv from 'dotenv';
-import {FIREBASE_API, FIREBASE_AUTH_DOMAIN} from "dotenv";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./components/pages/Home";
-import Result from "./components/pages/Result";
-import Login from "./components/pages/Login";
-import Invite from "./components/pages/Invite";
+// import dotenv from 'dotenv';
+// import {FIREBASE_API, FIREBASE_AUTH_DOMAIN} from "dotenv";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+// import Navbar from "./components/Navbar";
+// import Home from "./components/pages/Home";
+// import Result from "./components/pages/Result";
+// import Login from "./components/pages/Login";
+// import Invite from "./components/pages/Invite";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
