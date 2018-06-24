@@ -1,4 +1,5 @@
 import React from "react";
+import Inputs from '../Inputs.js';
 
 const Login = () =>
   <div>
@@ -8,6 +9,7 @@ const Login = () =>
      or
      login with google+
     </p>
+    <Inputs/>
   </div>;
 
 export default Login;
