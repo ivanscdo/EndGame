@@ -36,7 +36,6 @@ function Public(props){
 }
 
 function Navbar(props){
- 
   return (
     <div  >
 
@@ -60,6 +59,7 @@ function Navbar(props){
       </Button>
 
     </div>
+    
   )
 }
 
