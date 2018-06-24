@@ -1,5 +1,6 @@
 import React from "react";
 
+// home to google maps 
 const Result = () =>
   <div>
     <h1>Result</h1>
