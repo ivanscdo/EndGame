@@ -1,5 +1,5 @@
 import React from "react";
-import Friends from "../Friends";
+import FriendsList from "../FriendsList";
 
 const Home = () =>
   <div>
@@ -7,7 +7,7 @@ const Home = () =>
     <p>
      Welcome to the EndGame
     </p>
-    <Friends />
+    <FriendsList />
   </div>;
 
 export default Home;
