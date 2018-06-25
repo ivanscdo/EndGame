@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 import SvgIcon from '@material-ui/core/SvgIcon';
-
+import firebase from "firebase";
 
 const iconsStyle ={
   color: 'black',
@@ -39,22 +40,27 @@ function Navbar(props){
   return (
     <div  >
 
+       <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
+        <Link to="/">
+          <HomeIcon style={iconsStyle}/>
+        </Link>
+      </Button>
+
+       <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
+        <Link to="/invite">
+          <GroupIcon style={iconsStyle} />
+        </Link>
+      </Button>
+
       <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="add" className={window.location.pathname === "/result" ? "active nav-link" : "nav-link"}>
         <Link to="/result">
           <Public style={iconsStyle} />
         </Link>
       </Button>
 
-
-      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/home" ? "active nav-link" : "nav-link" }>
-        <Link to="/home">
-          <HomeIcon style={iconsStyle}/>
-        </Link>
-      </Button>
-
-      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
-        <Link to="/invite">
-          <GroupIcon style={iconsStyle} />
+      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/login" ? "active nav-link" : "nav-link" }  >
+        <Link onClick={()=>firebase.auth().signOut()} to="/login">
+          Logout
         </Link>
       </Button>
 

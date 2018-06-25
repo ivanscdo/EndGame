@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import {BrowserRouter as Router, Route} from "react-router-dom"
+import Home from "./Home";
+import Invite from "./Invite";
+import Result from "./Result";
+import Navbar from "../Navbar";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
@@ -36,12 +41,20 @@ class Login extends Component {
     return (
       <div className="App">
       {this.state.isSignedIn ? (
+        <Router>
         <div>
-        <div>Signed In! </div>
-        <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button>
-        <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
-        <img alt="user" src={firebase.auth().currentUser.photoURL} />
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/invite" component={Invite} />
+          <Route path="/result" component={Result} />
         </div>
+      </Router>
+        // <div>
+        // <div>Signed In! </div>
+        // <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button>
+        // <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
+        // <img alt="user" src={firebase.auth().currentUser.photoURL} />
+        // </div>
       ) :
         (<StyledFirebaseAuth 
         uiConfig={this.uiConfig}
