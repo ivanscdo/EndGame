@@ -5,13 +5,61 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Result from "./components/pages/Result";
 import Login from "./components/pages/Login";
 // import Invite from "./components/pages/Invite";
+import fb from "./keys";
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
-const App = () =>
-  <Router>
-    <div className="App">
-     
-      <Route exact path="/" component={Login} />
-    </div>
-  </Router>;
+// dotenv.config();
+console.log(fb);
+
+firebase.initializeApp({
+  apiKey: fb.key,
+  authDomain: fb.auth
+})
+
+class App extends Component {
+  state = {isSignedIn: false}
+  uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signInSuccess: () => false
+    }
+  }
+
+  componentDidMount = () => {
+   
+
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({isSignedIn:!!user})
+      console.log("user",user);
+    })
+  }
+
+  render(){
+    return (
+      <div className="App">
+      {this.state.isSignedIn ? (
+        <div>
+        <div>Signed In! </div>
+        <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button>
+        <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
+        <img alt="user" src={firebase.auth().currentUser.photoURL} />
+        </div>
+      ) :
+        (<StyledFirebaseAuth 
+        uiConfig={this.uiConfig}
+        firebaseAuth={firebase.auth()}
+        />)
+        }
+      </div>
+    )
+  }
+}
 
 export default App;
