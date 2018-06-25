@@ -1,13 +1,14 @@
 import React from "react";
-
+import firebase from "firebase";
 
 
 const Invite = () =>
   <div>
     <h1>Invite</h1>
-    <p>
-      Invite Your friends
-    </p>
+    <div>Signed In! </div>
+      {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
+        <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
+        <img alt="user" src={firebase.auth().currentUser.photoURL} />
     
   </div>;
 
