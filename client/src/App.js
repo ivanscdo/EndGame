@@ -7,17 +7,22 @@ import React, { Component } from "react";
 // import Result from "./components/pages/Result";
 // import Login from "./components/pages/Login";
 // import Invite from "./components/pages/Invite";
-import fb from "./keys";
+import keys from "./keys";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 // dotenv.config();
-console.log(fb);
+console.log(keys);
 
 firebase.initializeApp({
-  apiKey: fb.key,
-  authDomain: fb.auth
+  apiKey: keys.FB.api,
+  authDomain: keys.FB.auth
 })
+
+// firebase.initializeApp({
+//   apiKey: keys.FB.api,
+//   authDomain: keys.FB.auth
+// })
 
 class App extends Component {
   state = {isSignedIn: false}
