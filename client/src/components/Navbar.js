@@ -1,14 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import firebase from "firebase";
 
 const iconsStyle ={
   color: 'black',
-  size: '100%'
+  size: '100%',
+  display: 'flex',
+  flexWrap: 'wrap'
 };
 
+const styles = {
+ 
+  bigAvatar: {
+    width: 60,
+    height: 60,
+  },
+};
 
 function HomeIcon(props) {
   return (
@@ -35,9 +45,33 @@ function Public(props){
   )
 }
 
+function User(props){
+  return (
+    <div >
+      <Avatar alt="User" src={firebase.auth().currentUser.photoURL} style={styles} />
+    </div>
+  )
+}
+
+function Logout(props){
+  return (
+    <SvgIcon {...props}>
+      <path d=  "M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+ size="100%" />
+    </SvgIcon>
+  )
+}
+
+
 function Navbar(props){
   return (
     <div  >
+
+       <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className="active nav-link">
+        
+          <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
+        
+      </Button>
 
        <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
         <Link to="/">
@@ -57,11 +91,12 @@ function Navbar(props){
         </Link>
       </Button>
 
-      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/login" ? "active nav-link" : "nav-link" }  >
-        <Link onClick={()=>firebase.auth().signOut()} to="/login">
-          Logout
+      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
+        <Link onClick={()=>firebase.auth().signOut()} to="/">
+          <Logout style={iconsStyle}/>
         </Link>
       </Button>
+
 
     </div>
     
