@@ -44,10 +44,14 @@ class App extends Component {
         <div className="App">
           {this.state.isSignedIn ? (
           <div>
-            <div>Signed In! </div>
-            <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button>
-            <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
-            <img alt="user" src={firebase.auth().currentUser.photoURL} />
+            <Router> 
+              <div>
+              <Navbar />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/invite" component={Invite} />
+              <Route path="/result" component={Result} />              </div>
+            </Router>
+            
           </div>
         ) :
           (<StyledFirebaseAuth 
