@@ -78,7 +78,7 @@ function Navbar(props){
         </Link>
       </Button>
 
-       <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
+      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
         <Link to="/invite">
           <GroupIcon style={iconsStyle} />
         </Link>
