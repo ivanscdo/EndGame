@@ -1,13 +1,13 @@
 import React from "react";
-import Friends from "../Friends";
+import firebase from "firebase";
 
 const Home = () =>
   <div>
     <h1>Home</h1>
-    <p>
-     Welcome to the EndGame
-    </p>
-    <Friends />
+    <div>Signed In! </div>
+      {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
+        <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
+        <img alt="user" src={firebase.auth().currentUser.photoURL} />
   </div>;
 
 export default Home;

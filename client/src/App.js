@@ -1,28 +1,21 @@
 import React, { Component } from "react";
-// import dotenv from 'dotenv';
-// import {FIREBASE_API, FIREBASE_AUTH_DOMAIN} from "dotenv";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import Navbar from "./components/Navbar";
-// import Home from "./components/pages/Home";
-// import Result from "./components/pages/Result";
-// import Login from "./components/pages/Login";
-// import Invite from "./components/pages/Invite";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/pages/Home";
+import Result from "./components/pages/Result";
+import Login from "./components/pages/Login";
+import Invite from "./components/pages/Invite";
 import keys from "./keys";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
-// dotenv.config();
+// Check to see if our Keys are coming through. -Note: This will need to be changed to prevent others from Loggin our Keys.
 console.log(keys);
 
 firebase.initializeApp({
   apiKey: keys.FB.api,
   authDomain: keys.FB.auth
 })
-
-// firebase.initializeApp({
-//   apiKey: keys.FB.api,
-//   authDomain: keys.FB.auth
-// })
 
 class App extends Component {
   state = {isSignedIn: false}
@@ -48,23 +41,28 @@ class App extends Component {
     })
   }
 
+  // this is what will be displayed once signed in
   render(){
     return (
-      <div className="App">
-      {this.state.isSignedIn ? (
-        <div>
-        <div>Signed In! </div>
-        <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button>
-        <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
-        <img alt="user" src={firebase.auth().currentUser.photoURL} />
+        <div className="App">
+          {this.state.isSignedIn ? (
+          <div>
+            <Router> 
+              <div>
+              <Navbar />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/invite" component={Invite} />
+              <Route path="/result" component={Result} />              </div>
+            </Router>
+            
+          </div>
+        ) :
+          (<StyledFirebaseAuth 
+          uiConfig={this.uiConfig}
+          firebaseAuth={firebase.auth()}
+          />)
+          }
         </div>
-      ) :
-        (<StyledFirebaseAuth 
-        uiConfig={this.uiConfig}
-        firebaseAuth={firebase.auth()}
-        />)
-        }
-      </div>
     )
   }
 }
