@@ -7,7 +7,7 @@ import Result from "./Result";
 import Navbar from "../Navbar";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import keys from "../../keys";
+
 
 // console.log("Hello",FB.api);
 
