@@ -9,10 +9,10 @@ module.exports = {
     },
     create: function(req, res) {
       db
-        .findOne({email:req.email})
+        .findOne({email:req.body.email})
         .then(currentUser => {
           if(currentUser){
-            dbModel => res.json(dbModel)
+            res.send("Welcome back!")
           }else {
             db.create(req.body)
             .then(dbModel => res.json(dbModel))

@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   userName: { type: String, required: true },
   email: { type: String, required: true },
-  photoURL: String,
-  // isSignedIn: {type:Boolean, default:false },
+  photoURL: {type:String},
+  locationLat: {type:Number},
+  locationLng: {type:Number},
   date: { type: Date, default: Date.now }
 });
 
