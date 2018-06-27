@@ -7,7 +7,8 @@ import Result from "./Result";
 import Navbar from "../Navbar";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-
+import API from "../../utils/API";
+// import keys from "../../keys";
 
 // console.log("Hello",FB.api);
 
@@ -17,8 +18,11 @@ firebase.initializeApp({
 })
 
 class Login extends Component {
-  state = {isSignedIn: false,
-  redirect: true}
+  state = {
+    isSignedIn: false,
+    redirect: true,
+    user:{}  
+  }
   uiConfig = {
     signInFlow: "popup",
     signInSuccessUrl:"http://localhost:3000/home",
@@ -35,18 +39,38 @@ class Login extends Component {
   }
 
   componentDidMount = () => {
-   
-
     firebase.auth().onAuthStateChanged(user => {
       this.setState({isSignedIn:!!user})
-      console.log("user",user);
+      this.createNewUser()
     })
   }
+ 
+  createNewUser = () =>{
+      if(firebase.auth().currentUser){
+        API.createUser({
+          userName: firebase.auth().currentUser.displayName,
+          email: firebase.auth().currentUser.email,
+          photoURL: firebase.auth().currentUser.photoURL,
+          // isSignedIn: this.state.isSignedIn,
+        })
+        .then(res=> console.log("user created"))
+        .catch(err => console.log(err));
+      }
+  }
+
+    // loadUsers = () => {
+    //   API.getUsers()
+    //   .then(res =>
+    //     this.setState({ isSignedIn: true })
+    //   )
+    //   .catch(err => console.log(err));
+    // }
 
   render(){
     return (
       <div className="App">
       {this.state.isSignedIn ? (
+        
       <Router>
         <div>
           <Navbar />
