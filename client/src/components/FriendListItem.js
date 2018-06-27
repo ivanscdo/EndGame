@@ -7,9 +7,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatars from './Avatars';
 
+const styles = {
+    ListItem: { background: '#FF5722', text: 'white' }
+}
+
 export default props =>
 
-<ListItem>
+<ListItem style={styles.ListItem}>
     <ListItemAvatar>
         <Avatars>
         </Avatars>
