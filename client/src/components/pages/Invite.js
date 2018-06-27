@@ -2,11 +2,17 @@ import React from "react";
 import firebase from "firebase";
 import FriendsList from "../FriendsList";
 import { Paper, Typography } from "@material-ui/core";
+import "./PageBody.css";
 
+
+const styles = {
+  Paper: { padding: 20, width: 600 },
+  FriendsList: { padding: 20, width: 600 }
+}
 
 const Invite = () =>
-  <div>
-    <Paper>
+  <div className='page-body'>
+    <Paper style={styles.Paper}>
       {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
       <Typography variant='Title'>
       <img alt="user" width="50px" margin='5px'src={firebase.auth().currentUser.photoURL} />
@@ -19,8 +25,10 @@ const Invite = () =>
     <br />
 
 
-   <FriendsList /> 
+   <FriendsList />
+
   </div>;
+
 
   
 
