@@ -8,9 +8,6 @@ import Navbar from "../Navbar";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
-// import keys from "../../keys";
-
-// console.log("Hello",FB.api);
 
 firebase.initializeApp({
   apiKey: keys.FB.api,
