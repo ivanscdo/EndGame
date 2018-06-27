@@ -63,13 +63,14 @@ function Logout(props){
 }
 
 function Navbar(props){
+ 
   return (
     <div  >
 
-      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
-        <Link to="/">
+       <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className="active nav-link">
+        
           <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
-        </Link>
+        
       </Button>
 
        <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
@@ -78,7 +79,7 @@ function Navbar(props){
         </Link>
       </Button>
 
-      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
+       <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
         <Link to="/invite">
           <GroupIcon style={iconsStyle} />
         </Link>
@@ -90,15 +91,15 @@ function Navbar(props){
         </Link>
       </Button>
 
-      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/login" ? "active nav-link" : "nav-link" }  >
-        <Link onClick={()=>firebase.auth().signOut()} to="/login">
+      <Button variant="fab" style={{ margin:15, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
+        <Link onClick={()=>firebase.auth().signOut()} to="/">
           <Logout style={iconsStyle}/>
         </Link>
       </Button>
 
     </div>
-    
   )
 }
 
 export default Navbar;
+

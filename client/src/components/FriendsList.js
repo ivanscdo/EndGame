@@ -26,6 +26,7 @@ export default props =>
         }}
       />
     </form>
+    <br />
    </Paper>    
  </Grid> 
 
@@ -39,7 +40,7 @@ export default props =>
         <div className=/*{classes.demo}*/'valueD'>
               <List /*dense={dense}*/ valueK>
                 <FormControl component="fieldset">
-                <FormLabel component="legend">Assign responsibility</FormLabel>
+                <FormLabel component="legend">Meet UP Instance</FormLabel>
                 <FormGroup>
 
 
@@ -52,3 +53,6 @@ export default props =>
   </Paper>
 </Grid>
 </div>
+
+/*need js logic to store the date and date from form to create instance on EndGame. 
+also need to know where to get data to populate the list*/

@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
 /*const styles = {
@@ -20,7 +18,6 @@ import Avatar from '@material-ui/core/Avatar';
 
 export default props =>
 <div>
-    <Avatar alt="Remy Sharp" src="/static/images/remy.jpg" className=/*{classes.avatar}*/ 'valueP' />
       <Avatar
         alt="Adelle Charles"
         src="/static/images/uxceo-128.jpg"
