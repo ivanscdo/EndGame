@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  userID: { type: String, required: true },
-  googleID: { type: String, required: true },
-  profileIMG: String,
-  isSignedIn: {type:Boolean, default:false },
+  userName: { type: String, required: true },
+  email: { type: String, required: true },
+  photoURL: String,
+  // isSignedIn: {type:Boolean, default:false },
   date: { type: Date, default: Date.now }
 });
 
