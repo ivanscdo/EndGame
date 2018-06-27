@@ -18,7 +18,6 @@ import Avatar from '@material-ui/core/Avatar';
 
 export default props =>
 <div>
-    <Avatar alt="Remy Sharp" src="/static/images/remy.jpg" className=/*{classes.avatar}*/ 'valueP' />
       <Avatar
         alt="Adelle Charles"
         src="/static/images/uxceo-128.jpg"
