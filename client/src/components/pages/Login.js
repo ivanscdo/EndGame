@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Home from "./Home";
+import keys from "../../keys";
 import Invite from "./Invite";
 import Result from "./Result";
 import Navbar from "../Navbar";
@@ -8,15 +9,16 @@ import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
-  authDomain: "endgame-1529521978924.firebaseapp.com"
+  apiKey: keys.FB.api,
+  authDomain: keys.FB.auth
 })
 
 class Login extends Component {
   state = {isSignedIn: false,
-  redirect: false}
+  redirect: true}
   uiConfig = {
     signInFlow: "popup",
+    signInSuccessUrl:"http://localhost:3000/home",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -24,8 +26,9 @@ class Login extends Component {
       firebase.auth.GithubAuthProvider.PROVIDER_ID
     ],
     callbacks: {
-      signInSuccess: () => false
-    }
+      signInSucessWithAuthResult: ()  => true,
+      
+    } 
   }
 
   componentDidMount = () => {

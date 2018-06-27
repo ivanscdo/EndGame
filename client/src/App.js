@@ -9,18 +9,19 @@ import keys from "./keys";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
-// Check to see if our Keys are coming through. -Note: This will need to be changed to prevent others from Loggin our Keys.
+// Check to see if our Keys are coming through. -Note: This will need to be changed to prevent others from Logging our Keys.
 console.log(keys);
 
-firebase.initializeApp({
-  apiKey: keys.FB.api,
-  authDomain: keys.FB.auth
-})
+// firebase.initializeApp({
+//   apiKey: keys.FB.api,
+//   authDomain: keys.FB.auth
+// })
 
 class App extends Component {
   state = {isSignedIn: false}
   uiConfig = {
     signInFlow: "popup",
+    signInSuccessUrl:"http://localhost:3000/home",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -28,7 +29,7 @@ class App extends Component {
       firebase.auth.GithubAuthProvider.PROVIDER_ID
     ],
     callbacks: {
-      signInSuccess: () => false
+      signInSuccessWithAuthResult: () => true
     }
   }
 
