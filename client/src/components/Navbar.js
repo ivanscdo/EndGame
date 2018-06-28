@@ -65,12 +65,12 @@ function Logout(props){
 function Navbar(props){
  
   return (
-    <div  >
-
-       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
+    <div className="menuButtons" style={{ width:"fit-content", margin: "auto", display:"block" }} >
+      
+       <Button variant="fab" style={{margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
         
           <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
-        
+
       </Button>
 
        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
@@ -98,6 +98,7 @@ function Navbar(props){
       </Button>
 
     </div>
+    
   )
 }
 
