@@ -12,10 +12,10 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 // Check to see if our Keys are coming through. -Note: This will need to be changed to prevent others from Logging our Keys.
 console.log(keys);
 
-// firebase.initializeApp({
-//   apiKey: keys.FB.api,
-//   authDomain: keys.FB.auth
-// })
+firebase.initializeApp({
+  apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
+  authDomain: "endgame-1529521978924.firebaseapp.com"
+})
 
 class App extends Component {
   state = {isSignedIn: false}
@@ -34,8 +34,6 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-   
-
     firebase.auth().onAuthStateChanged(user => {
       this.setState({isSignedIn:!!user})
       console.log("user",user);
@@ -50,10 +48,11 @@ class App extends Component {
           <div>
             <Router> 
               <div>
-              <Navbar />
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/invite" component={Invite} />
-              <Route path="/result" component={Result} />              </div>
+                <Navbar />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/invite" component={Invite} />
+                <Route path="/result" component={Result} />
+              </div>
             </Router>
             
           </div>
