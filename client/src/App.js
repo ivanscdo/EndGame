@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/pages/Home";
 import Result from "./components/pages/Result";
-import Login from "./components/pages/Login";
+//import Login from "./components/pages/Login";
 import Invite from "./components/pages/Invite";
 //import keys from "./keys";
 import firebase from "firebase";
@@ -17,10 +17,10 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 //   authDomain: keys.FB.auth
 // })
 
-// firebase.initializeApp({
-//   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
-//   authDomain: "endgame-1529521978924.firebaseapp.com"
-// })
+firebase.initializeApp({
+  apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
+  authDomain: "endgame-1529521978924.firebaseapp.com"
+})
 
 
 class App extends Component {
