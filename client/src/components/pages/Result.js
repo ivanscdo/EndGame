@@ -1,7 +1,10 @@
 import React from "react";
 import firebase from "firebase";
+import './PageBody.css';
+
+
 const Result = () =>
-  <div>
+  <div className='page-body'>
     <h1>Result</h1>
     <div>Signed In! </div>
       {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}

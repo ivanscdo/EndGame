@@ -9,11 +9,18 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FriendsListItem from './FriendListItem';
 
+
+const styles = {
+  Paper: { padding: 20, width: 600, align: "center" },
+  }
+
+
 export default props =>
 
-<div>
-<Grid item sm>
-  <Paper>
+
+<div className='page-body'> 
+
+  <Paper style={styles.Paper}>
     <form className=/*{classes.container} noValidate*/ 'valueS'>
       <TextField
         id="datetime-local"
@@ -28,12 +35,12 @@ export default props =>
     </form>
     <br />
    </Paper>    
- </Grid> 
+
 
 <br />
 
-<Grid item sm>
-  <Paper>
+
+  <Paper style={styles.Paper}>
     <Typography variant="title" className=/*{classes.title}*/'valueL'>
         Your Available Friends:
     </Typography>
@@ -51,7 +58,7 @@ export default props =>
               </List>
         </div>
   </Paper>
-</Grid>
+
 </div>
 
 /*need js logic to store the date and date from form to create instance on EndGame. 

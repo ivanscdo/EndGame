@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Home from "./Home";
-import keys from "../../keys";
+//import keys from "../../keys";
 import Invite from "./Invite";
 import Result from "./Result";
 import Navbar from "../Navbar";
@@ -9,12 +9,19 @@ import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
 
+<<<<<<< HEAD
 // firebase.initializeApp({
 //   // apiKey: keys.FB.api,
 //   // authDomain: keys.FB.auth
 //   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
 // authDomain: "endgame-1529521978924.firebaseapp.com"
 // })
+=======
+firebase.initializeApp({
+  apiKey: process.env.REACT_APP_FB_API,
+  authDomain: process.env.REACT_APP_FB_AUTH_DOMAIN
+})
+>>>>>>> 611c52c10cd4ff8c07758a35d34f7e51e93e76f9
 
 class Login extends Component {
   state = {

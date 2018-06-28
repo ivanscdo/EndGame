@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/pages/Home";
 import Result from "./components/pages/Result";
-import Login from "./components/pages/Login";
+//import Login from "./components/pages/Login";
 import Invite from "./components/pages/Invite";
-import keys from "./keys";
+//import keys from "./keys";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 // Check to see if our Keys are coming through. -Note: This will need to be changed to prevent others from Logging our Keys.
-console.log(keys);
+//console.log(keys);
 
 firebase.initializeApp({
   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
