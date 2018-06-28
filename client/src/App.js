@@ -17,6 +17,12 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 //   authDomain: keys.FB.auth
 // })
 
+firebase.initializeApp({
+  apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
+  authDomain: "endgame-1529521978924.firebaseapp.com"
+})
+
+
 class App extends Component {
   state = {isSignedIn: false}
   uiConfig = {
