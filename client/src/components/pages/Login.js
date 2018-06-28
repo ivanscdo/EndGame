@@ -10,8 +10,8 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
 
 firebase.initializeApp({
-  apiKey: keys.FB.api,
-  authDomain: keys.FB.auth
+  apiKey: process.env.REACT_APP_FB_API,
+  authDomain: process.env.REACT_APP_FB_AUTH_DOMAIN
 })
 
 class Login extends Component {
