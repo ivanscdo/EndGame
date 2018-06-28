@@ -27,7 +27,7 @@ class App extends Component {
   state = {isSignedIn: false}
   uiConfig = {
     signInFlow: "popup",
-    signInSuccessUrl:"http://localhost:3000/home",
+    signInSuccessUrl:"https://endgame2.herokuapp.com/home",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
