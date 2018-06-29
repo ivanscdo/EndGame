@@ -1,44 +1,28 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import Home from "./Home";
-//import keys from "../../keys";
 import Invite from "./Invite";
 import Result from "./Result";
 import Navbar from "../Navbar";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-// firebase.initializeApp({
-//   // apiKey: keys.FB.api,
-//   // authDomain: keys.FB.auth
-//   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
-// authDomain: "endgame-1529521978924.firebaseapp.com"
-// })
-=======
+// import keys from "../../keys";
+// console.log("Hello",FB.api);
 firebase.initializeApp({
-  apiKey: process.env.REACT_APP_FB_API,
-  authDomain: process.env.REACT_APP_FB_AUTH_DOMAIN
+  // apiKey: keys.FB.api,
+  // authDomain: keys.FB.auth
+  apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
+ authDomain: "endgame-1529521978924.firebaseapp.com"
 })
->>>>>>> 611c52c10cd4ff8c07758a35d34f7e51e93e76f9
-=======
-// firebase.initializeApp({
-//   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
-//   authDomain: "endgame-1529521978924.firebaseapp.com"
-// })
->>>>>>> 7996f9f4b391ebaaddbc341dc95ae7ff2c1c5d87
-
 class Login extends Component {
   state = {
     isSignedIn: false,
-    redirect: true,
-    user:{}  
+    user: {}
   }
   uiConfig = {
     signInFlow: "popup",
-    signInSuccessUrl:"https://endgame2.herokuapp.com/home",
+    signInSuccessUrl:"http://localhost:3000/",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -47,14 +31,13 @@ class Login extends Component {
     ],
     callbacks: {
       signInSucessWithAuthResult: ()  => true,
-      
-    } 
+    }
   }
-
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({isSignedIn:!!user})
       this.createNewUser()
+      
     })
   }
  
@@ -64,13 +47,13 @@ class Login extends Component {
           userName: firebase.auth().currentUser.displayName,
           email: firebase.auth().currentUser.email,
           photoURL: firebase.auth().currentUser.photoURL,
-          // isSignedIn: this.state.isSignedIn,
+          isSignedIn: this.state.isSignedIn,
         })
         .then(res=> console.log("user created"))
         .catch(err => console.log(err));
       }
   }
-
+  
     // loadUsers = () => {
     //   API.getUsers()
     //   .then(res =>
@@ -78,7 +61,6 @@ class Login extends Component {
     //   )
     //   .catch(err => console.log(err));
     // }
-
   render(){
     return (
       <div className="App">
@@ -99,15 +81,18 @@ class Login extends Component {
         // <img alt="user" src={firebase.auth().currentUser.photoURL} />
         // </div>
       ) :
-        (<StyledFirebaseAuth 
+        (<div>
+          <h1>Log In Here!</h1> 
+          <StyledFirebaseAuth 
         uiConfig={this.uiConfig}
         firebaseAuth={firebase.auth()}
-        />)
+        />
+          </div>
+       )
         }
       </div>
     )
   }
 }
-
 export default Login;
 

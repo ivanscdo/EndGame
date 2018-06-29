@@ -12,11 +12,21 @@ module.exports = {
         .findOne({email:req.body.email})
         .then(currentUser => {
           if(currentUser){
-            res.send("Welcome back!")
+            console.log(currentUser);
+            db.findOneAndUpdate({
+              "email" : req.body.email
+            }, { $set : { "isSignedIn" : true } })
+            .then(data => res.send("Welcome Back"))
           }else {
             db.create(req.body)
             .then(dbModel => res.json(dbModel))
           }})
+    },
+    updateSignIn: function(req, res){
+      db
+        .findOneAndUpdate({"email":req.body.email}, { $set: {"isSignedIn":false}})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
     }
   };
 

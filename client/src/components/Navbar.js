@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{Component} from "react";
+import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
-import { Link } from "react-router-dom";
 import SvgIcon from '@material-ui/core/SvgIcon';
 import firebase from "firebase";
-import { height } from 'window-size';
+import API from "../utils/API";
 
 const iconsStyle ={
   color: 'black',
@@ -73,29 +73,60 @@ function Navbar(props){
 
       </Button>
 
-       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
-        <Link to="/">
-          <HomeIcon style={iconsStyle}/>
-        </Link>
-      </Button>
+  state = { 
+      isSignedIn: true,
+      user: firebase.auth().currentUser
+  }
 
-       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
-        <Link to="/invite">
-          <GroupIcon style={iconsStyle} />
-        </Link>
-      </Button>
 
-      <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="add" className={window.location.pathname === "/result" ? "active nav-link" : "nav-link"}>
-        <Link to="/result">
-          <Public style={iconsStyle} />
-        </Link>
-      </Button>
+handleSignOut = () =>{
+  if(firebase.auth().currentUser){
+    API.updateSignIn({email:firebase.auth().currentUser.email})
+    .then(res => console.log("state updated"))
+    .then(()=>firebase.auth().signOut())
+        .catch(err => console.log(err));
+  }
+  
+}
 
-      <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
-        <Link onClick={()=>firebase.auth().signOut()} to="/">
-          <Logout style={iconsStyle}/>
-        </Link>
-      </Button>
+  render(){
+    return (
+      <div  >
+  
+         <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
+          
+            <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
+          
+        </Button>
+  
+         <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
+          <Link to="/">
+            <HomeIcon style={iconsStyle}/>
+          </Link>
+        </Button>
+  
+         <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
+          <Link to="/invite">
+            <GroupIcon style={iconsStyle} />
+          </Link>
+        </Button>
+  
+        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="add" className={window.location.pathname === "/result" ? "active nav-link" : "nav-link"}>
+          <Link to="/result">
+            <Public style={iconsStyle} />
+          </Link>
+        </Button>
+  
+        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
+          <Link onClick={()=>this.handleSignOut()} to="/">
+            <Logout style={iconsStyle}/>
+          </Link>
+        </Button>
+  
+  
+      </div>
+      
+    )
 
     </div>
     
