@@ -10,6 +10,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // firebase.initializeApp({
 //   // apiKey: keys.FB.api,
 //   // authDomain: keys.FB.auth
@@ -22,6 +23,12 @@ firebase.initializeApp({
   authDomain: process.env.REACT_APP_FB_AUTH_DOMAIN
 })
 >>>>>>> 611c52c10cd4ff8c07758a35d34f7e51e93e76f9
+=======
+// firebase.initializeApp({
+//   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
+//   authDomain: "endgame-1529521978924.firebaseapp.com"
+// })
+>>>>>>> 7996f9f4b391ebaaddbc341dc95ae7ff2c1c5d87
 
 class Login extends Component {
   state = {
@@ -31,7 +38,7 @@ class Login extends Component {
   }
   uiConfig = {
     signInFlow: "popup",
-    signInSuccessUrl:"http://localhost:3000/home",
+    signInSuccessUrl:"https://endgame2.herokuapp.com/home",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
