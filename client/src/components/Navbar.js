@@ -53,14 +53,6 @@ function User(props){
   )
 }
 
-function User(props){
-  return (
-    <div >
-      <Avatar alt="User" src={firebase.auth().currentUser.photoURL} style={styles} />
-    </div>
-  )
-}
-
 function Logout(props){
   return (
     <SvgIcon {...props}>
@@ -73,11 +65,10 @@ function Logout(props){
 
 class Navbar extends Component {
 
-      <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
-        <Link onClick={()=>firebase.auth().signOut()} to="/">
-          <Logout style={iconsStyle}/>
-        </Link>
-      </Button>
+  state = { 
+      isSignedIn: true,
+      user: firebase.auth().currentUser
+  }
 
 
 handleSignOut = () =>{
