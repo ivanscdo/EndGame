@@ -45,6 +45,7 @@ function Public(props){
     </SvgIcon>
   )
 }
+
 function User(props){
   return (
     <div >
@@ -62,52 +63,70 @@ function Logout(props){
   )
 }
 
-function Navbar(props){
- 
-  return (
-    <div className="menuButtons" style={{ width:"fit-content", margin: "auto", display:"block" }} >
+
+class Navbar extends Component {
+
+  state = { 
+      isSignedIn: true,
+      user: firebase.auth().currentUser
+  }
+
+
+handleSignOut = () =>{
+  if(firebase.auth().currentUser){
+    API.updateSignIn({email:firebase.auth().currentUser.email})
+    .then(res => console.log("state updated"))
+    .then(()=>firebase.auth().signOut())
+        .catch(err => console.log(err));
+  }
+  
+}
+
+  render(){
+    return (
+   <div className="menuButtons" style={{ width:"fit-content", margin: "auto", display:"block" }} >
       
-       <Button variant="fab" style={{margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
-        
-          <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
+      <Button variant="fab" style={{margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
+       
+         <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
 
-      </Button>
+     </Button>
 
+
+
+  
  
-
-   
-  
-         <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
-          <Link to="/">
-            <HomeIcon style={iconsStyle}/>
-          </Link>
-        </Button>
-  
-         <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
-          <Link to="/invite">
-            <GroupIcon style={iconsStyle} />
-          </Link>
-        </Button>
-  
-        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="add" className={window.location.pathname === "/result" ? "active nav-link" : "nav-link"}>
-          <Link to="/result">
-            <Public style={iconsStyle} />
-          </Link>
-        </Button>
-  
-        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
-          <Link onClick={()=>this.handleSignOut()} to="/">
-            <Logout style={iconsStyle}/>
-          </Link>
-        </Button>
+        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
+         <Link to="/">
+           <HomeIcon style={iconsStyle}/>
+         </Link>
+       </Button>
+ 
+        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
+         <Link to="/invite">
+           <GroupIcon style={iconsStyle} />
+         </Link>
+       </Button>
+ 
+       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="add" className={window.location.pathname === "/result" ? "active nav-link" : "nav-link"}>
+         <Link to="/result">
+           <Public style={iconsStyle} />
+         </Link>
+       </Button>
+ 
+       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
+         <Link onClick={()=>this.handleSignOut()} to="/">
+           <Logout style={iconsStyle}/>
+         </Link>
+       </Button>
   
   
       </div>
-   
+      
+    )
 
-    
-  )
+  }
+  
 }
 
 export default Navbar;
-
