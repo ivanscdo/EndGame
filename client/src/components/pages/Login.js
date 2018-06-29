@@ -40,7 +40,6 @@ class Login extends Component {
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({isSignedIn:!!user})
-      this.updateCurrentUser()
       this.createNewUser()
       
     })
@@ -59,15 +58,7 @@ class Login extends Component {
       }
   }
 
-  updateCurrentUser = () => {
-    if(firebase.auth().currentUser){
-      API.updateCurrentUser({
-        email: firebase.auth().currentUser.email
-      })
-      .then(res=> console.log("user updated"))
-      .catch(err => console.log(err));
-    }
-  }
+  
 
     // loadUsers = () => {
     //   API.getUsers()

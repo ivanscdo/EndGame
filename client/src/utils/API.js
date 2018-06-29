@@ -12,9 +12,5 @@ export default {
   // update isSignedIn on logout
   updateSignIn: function(userData){
     return axios.put("/api/users", userData)
-  },
-  // update isSignedIn on login
-  updateCurrentUser: function(userData){
-    return axios.put("/api/users", userData)
   }
 };

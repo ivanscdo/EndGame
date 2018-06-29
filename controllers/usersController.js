@@ -26,12 +26,6 @@ module.exports = {
         .findOneAndUpdate({"email":req.body.email}, { $set: {"isSignedIn":false}})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-    },
-    updateCurrentUser: function(req, res){
-      db
-        .findOneAndUpdate({"email":req.body.email}, { $set: {"isSignedIn":true}})
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
     }
   };
 
