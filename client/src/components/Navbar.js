@@ -73,31 +73,9 @@ function Navbar(props){
 
       </Button>
 
-  state = { 
-      isSignedIn: true,
-      user: firebase.auth().currentUser
-  }
+ 
 
-
-handleSignOut = () =>{
-  if(firebase.auth().currentUser){
-    API.updateSignIn({email:firebase.auth().currentUser.email})
-    .then(res => console.log("state updated"))
-    .then(()=>firebase.auth().signOut())
-        .catch(err => console.log(err));
-  }
-  
-}
-
-  render(){
-    return (
-      <div  >
-  
-         <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
-          
-            <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
-          
-        </Button>
+   
   
          <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
           <Link to="/">
@@ -125,10 +103,8 @@ handleSignOut = () =>{
   
   
       </div>
-      
-    )
+   
 
-    </div>
     
   )
 }
