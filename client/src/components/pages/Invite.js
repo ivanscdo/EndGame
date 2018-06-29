@@ -6,10 +6,10 @@ import FriendsList from "../FriendsList";
 import { Paper, Typography } from "@material-ui/core";
 import "./PageBody.css";
 
-
 const styles = {
   Paper: { padding: 20, width: 600 },
 }
+
 
 const Invite = () =>
 
@@ -30,7 +30,8 @@ const Invite = () =>
 
    <FriendsList />
 
-  </div>
+  </div>;
 
+  
 
 export default Invite;

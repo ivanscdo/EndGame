@@ -8,16 +8,13 @@ import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
 // import keys from "../../keys";
-
 // console.log("Hello",FB.api);
-
 firebase.initializeApp({
   // apiKey: keys.FB.api,
   // authDomain: keys.FB.auth
   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
  authDomain: "endgame-1529521978924.firebaseapp.com"
 })
-
 class Login extends Component {
   state = {
     isSignedIn: false,
@@ -36,7 +33,6 @@ class Login extends Component {
       signInSucessWithAuthResult: ()  => true,
     }
   }
-
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({isSignedIn:!!user})
@@ -57,9 +53,7 @@ class Login extends Component {
         .catch(err => console.log(err));
       }
   }
-
   
-
     // loadUsers = () => {
     //   API.getUsers()
     //   .then(res =>
@@ -67,7 +61,6 @@ class Login extends Component {
     //   )
     //   .catch(err => console.log(err));
     // }
-
   render(){
     return (
       <div className="App">
@@ -88,15 +81,17 @@ class Login extends Component {
         // <img alt="user" src={firebase.auth().currentUser.photoURL} />
         // </div>
       ) :
-        (<StyledFirebaseAuth 
+        (<div>
+          <h1>Log In Here!</h1> 
+          <StyledFirebaseAuth 
         uiConfig={this.uiConfig}
         firebaseAuth={firebase.auth()}
-        />)
+        />
+          </div>
+       )
         }
       </div>
     )
   }
 }
-
 export default Login;
-

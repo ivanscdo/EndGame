@@ -1,7 +1,9 @@
+import FriendsList from "../FriendsList";
 import React, {Component} from "react";
 // import firebase from "firebase";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-// import keys from "../../keys";
+//import keys from "../../keys";
+import './PageBody.css';
 
 
 class Home extends Component {
@@ -35,7 +37,7 @@ class Home extends Component {
 
   render (){
     return (
-      <div>
+      <div className='page-body'>
     <h1>Home</h1>
     <div>Signed In! </div>
           <Map google={this.props.google}
@@ -59,5 +61,5 @@ class Home extends Component {
 
 // export default Home;
 export default GoogleApiWrapper({
-  apiKey:"AIzaSyAMqhG-GED8NdkrqM4tD0zair5WQEuXmwg"
+  apiKey: "AIzaSyAMqhG-GED8NdkrqM4tD0zair5WQEuXmwg"
 })(Home)
