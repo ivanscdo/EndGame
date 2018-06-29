@@ -84,41 +84,36 @@ handleSignOut = () =>{
 
   render(){
     return (
-   <div className="menuButtons" style={{ width:"fit-content", margin: "auto", display:"block" }} >
+      <div className="menuButtons" style={{ width:"fit-content", margin: "auto", display:"block" }} >
       
       <Button variant="fab" style={{margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
        
          <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
-
      </Button>
 
-
-
-  
- 
-        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
-         <Link to="/">
+     <Link to="/">
+       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }>
            <HomeIcon style={iconsStyle}/>
-         </Link>
        </Button>
- 
-        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
-         <Link to="/invite">
+     </Link>
+
+     <Link to="/invite">
+       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }  >
            <GroupIcon style={iconsStyle} />
-         </Link>
        </Button>
- 
+     </Link>
+
+     <Link to="/result">
        <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="add" className={window.location.pathname === "/result" ? "active nav-link" : "nav-link"}>
-         <Link to="/result">
            <Public style={iconsStyle} />
-         </Link>
        </Button>
- 
-       <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
-         <Link onClick={()=>this.handleSignOut()} to="/">
-           <Logout style={iconsStyle}/>
-         </Link>
-       </Button>
+     </Link>  
+
+     <Link onClick={()=>this.handleSignOut()} to="/">
+         <Button variant="fab" style={{ margin:2, alignContent:'center' }} aria-label="edit" className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }  >
+             <Logout style={iconsStyle}/>
+         </Button>
+       </Link>
   
   
       </div>
