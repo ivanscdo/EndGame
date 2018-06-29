@@ -88,10 +88,14 @@ class Login extends Component {
         // <img alt="user" src={firebase.auth().currentUser.photoURL} />
         // </div>
       ) :
-        (<StyledFirebaseAuth 
+        (<div>
+          <h1>Log In Here!</h1> 
+          <StyledFirebaseAuth 
         uiConfig={this.uiConfig}
         firebaseAuth={firebase.auth()}
-        />)
+        />
+          </div>
+       )
         }
       </div>
     )
