@@ -9,9 +9,7 @@ import Login from "./components/pages/Login";
 const App = () =>
   <Router>
     <div className="App">
-     
       <Route exact path="/" component={Login} />
     </div>
   </Router>;
-
 export default App;

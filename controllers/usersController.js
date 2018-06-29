@@ -12,6 +12,7 @@ module.exports = {
         .findOne({email:req.body.email})
         .then(currentUser => {
           if(currentUser){
+            console.log(currentUser);
             db.findOneAndUpdate({
               "email" : req.body.email
             }, { $set : { "isSignedIn" : true } })
