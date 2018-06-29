@@ -4,7 +4,6 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 //import keys from "../../keys";
 import './PageBody.css';
 
-
 class Home extends Component {
   state = {
     showingInfoWindow: false,
