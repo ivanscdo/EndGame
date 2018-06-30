@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// import FriendsList from "../FriendsList";
+>>>>>>> c14e364bf2a87f3176ef6f49e53690b4f343c5f8
 import React, {Component} from "react";
 import firebase from "firebase";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
@@ -5,12 +9,15 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import { Paper, Typography } from '@material-ui/core';
 import './PageBody.css';
 
+<<<<<<< HEAD
 
 const styles = {
   Paper: { padding: 20, width: 600 },
 }
 
 
+=======
+>>>>>>> c14e364bf2a87f3176ef6f49e53690b4f343c5f8
 class Home extends Component {
   state = {
     showingInfoWindow: false,
