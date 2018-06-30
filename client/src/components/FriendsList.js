@@ -15,51 +15,59 @@ const styles = {
   }
 
 
-export default props =>
+//export default props => {
 
+//const users = props.liveUsers;
+function FriendsList (props){  
+  return (
+    
+  <div className='page-body'> 
+    <Paper style={styles.Paper}>
+      <form className=/*{classes.container} noValidate*/ 'valueS'>
+        <TextField
+          id="datetime-local"
+          label="Next appointment"
+          type="datetime-local"
+          defaultValue="2017-05-24T10:30"
+          className=/*{classes.textField}*/ 'valueP'
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      </form>
+      <br />
+    </Paper>    
 
-<div className='page-body'> 
+  <br />
 
-  <Paper style={styles.Paper}>
-    <form className=/*{classes.container} noValidate*/ 'valueS'>
-      <TextField
-        id="datetime-local"
-        label="Next appointment"
-        type="datetime-local"
-        defaultValue="2017-05-24T10:30"
-        className=/*{classes.textField}*/ 'valueP'
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </form>
-    <br />
-   </Paper>    
+    <Paper style={styles.Paper}>
+      <Typography variant="title" className=/*{classes.title}*/'valueL'>
+          Your Available Friends:
+      </Typography>
+          <div className=/*{classes.demo}*/'valueD'>
+                <List /*dense={dense}*/ valueK>
+                  <FormControl component="fieldset">
+                  <FormLabel component="legend">Meet UP Instance</FormLabel>
+                  <FormGroup>
+                    <FriendsListItem/>
+                    {liveUsers = props.users}
+                    {/* {liveUsers.map((item, index) => (
+                      <FriendsListItem 
+                      alt={item.email}
+                      >
+                      </FriendsListItem>
+                    ))} */}
+                  </FormGroup>
+                  </FormControl>
+                </List>
+          </div>
+    </Paper>
+  </div>
+  )
+}
 
+export default FriendsList;
 
-<br />
-
-
-  <Paper style={styles.Paper}>
-    <Typography variant="title" className=/*{classes.title}*/'valueL'>
-        Your Available Friends:
-    </Typography>
-        <div className=/*{classes.demo}*/'valueD'>
-              <List /*dense={dense}*/ valueK>
-                <FormControl component="fieldset">
-                <FormLabel component="legend">Meet UP Instance</FormLabel>
-                <FormGroup>
-
-
-                   <FriendsListItem />
-
-                </FormGroup>
-                </FormControl>
-              </List>
-        </div>
-  </Paper>
-
-</div>
 
 /*need js logic to store the date and date from form to create instance on EndGame. 
 also need to know where to get data to populate the list*/
