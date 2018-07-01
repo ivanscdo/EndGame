@@ -1,6 +1,7 @@
 // /*global google*/
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap,Marker} from 'react-google-maps';
+import firebase from "firebase";
 
 class Map extends Component {
   constructor() {
@@ -9,7 +10,9 @@ class Map extends Component {
       center:{
         lat: 0,
       lng: 0,
-      }
+      },
+      isSignedIn: true,
+      user: firebase.auth().currentUser
       }
   }
 
@@ -25,6 +28,8 @@ class Map extends Component {
       });
     });
   }
+
+  
   
   render() {
    const GoogleMapExample = withGoogleMap(props => (
