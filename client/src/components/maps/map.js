@@ -59,7 +59,7 @@ class Map extends Component {
           containerElement={ <div style={{ height: `100%`, width: '100%' }} /> }
           mapElement={ <div style={{ height: '100%' }} /> }
         />
-        <button onClick={() => console.log(this.state)}>click me</button>
+        {/* <button onClick={() => console.log(this.state)}>click me</button> */}
       </div>
    );
    }
