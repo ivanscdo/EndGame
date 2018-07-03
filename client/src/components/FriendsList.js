@@ -7,21 +7,16 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FriendsListItem from './FriendListItem';
-import TimePicker from './TimePicker';
+
 
 
 const styles = {
-  Paper: { padding: 20, width: 600, align: "center" },
+  Paper: { padding: 20, width: 600, margin: 'auto' },
   }
 
 export default props =>
 
 
-<div className='page-body'> 
-
-  <TimePicker />    
-
-  <br />
 
 
   <Paper style={styles.Paper}>
@@ -43,7 +38,7 @@ export default props =>
         </div>
   </Paper>
 
-</div>
+
 
 /*need js logic to store the date and date from form to create instance on EndGame. 
 also need to know where to get data to populate the list*/
