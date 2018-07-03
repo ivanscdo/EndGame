@@ -8,10 +8,8 @@ import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
 // import keys from "../../keys";
-// console.log("Hello",FB.api);
+
 firebase.initializeApp({
-  // apiKey: keys.FB.api,
-  // authDomain: keys.FB.auth
   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
   authDomain: "endgame-1529521978924.firebaseapp.com"
 })
@@ -22,7 +20,7 @@ class Login extends Component {
   }
   uiConfig = {
     signInFlow: "popup",
-    signInSuccessUrl: window.location + "/home",
+    signInSuccessUrl: window.location,
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,

@@ -16,54 +16,64 @@ const styles = {
 
 
 //export default props => {
+ 
 
-//const users = props.liveUsers;
-function FriendsList (props){  
-  return (
-    
-  <div className='page-body'> 
-    <Paper style={styles.Paper}>
-      <form className=/*{classes.container} noValidate*/ 'valueS'>
-        <TextField
-          id="datetime-local"
-          label="Next appointment"
-          type="datetime-local"
-          defaultValue="2017-05-24T10:30"
-          className=/*{classes.textField}*/ 'valueP'
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-      </form>
-      <br />
-    </Paper>    
 
-  <br />
+function FriendsList (props){
+  //users = props.liveUsers;
+  // const users = props.liveUsers;
+  //["0"].date
+  let users = props.users;
+  console.log(users, "FriendsList Users");
+  
+    return (
+      
+    <div className='page-body'> 
+      <Paper style={styles.Paper}>
+        <form className=/*{classes.container} noValidate*/ 'valueS'>
+          <TextField
+            id="datetime-local"
+            label="Next appointment"
+            type="datetime-local"
+            defaultValue="2017-05-24T10:30"
+            className=/*{classes.textField}*/ 'valueP'
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </form>
+        <br />
+      </Paper>    
 
-    <Paper style={styles.Paper}>
-      <Typography variant="title" className=/*{classes.title}*/'valueL'>
-          Your Available Friends:
-      </Typography>
-          <div className=/*{classes.demo}*/'valueD'>
-                <List /*dense={dense}*/ valueK>
-                  <FormControl component="fieldset">
-                  <FormLabel component="legend">Meet UP Instance</FormLabel>
-                  <FormGroup>
-                    <FriendsListItem/>
-                    {liveUsers = props.users}
-                    {/* {liveUsers.map((item, index) => (
-                      <FriendsListItem 
-                      alt={item.email}
-                      >
-                      </FriendsListItem>
-                    ))} */}
-                  </FormGroup>
-                  </FormControl>
-                </List>
-          </div>
-    </Paper>
-  </div>
-  )
+    <br />
+
+      <Paper style={styles.Paper}>
+        <Typography variant="title" className=/*{classes.title}*/'valueL'>
+            Your Available Friends:
+        </Typography>
+            <div className=/*{classes.demo}*/'valueD'>
+                  <List /*dense={dense}*/ className='valueK'>
+                    <FormControl component="fieldset">
+                    <FormLabel component="legend">Meet UP Instance</FormLabel>
+                    <FormGroup>
+                      {props.users.map((item, index) => (
+                        <FriendsListItem 
+                        key = {item._id}
+                        photoURL={item.photoURL}
+                        userName={item.userName}
+                        email={item.email}
+                        online={item.isSignedIn}
+                        checked={props.handleChange}
+                        >
+                        </FriendsListItem>
+                      ))}
+                    </FormGroup>
+                    </FormControl>
+                  </List>
+            </div>
+      </Paper>
+    </div>
+    )
 }
 
 export default FriendsList;

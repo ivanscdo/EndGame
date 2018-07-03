@@ -18,7 +18,7 @@ class Invite extends Component {
       value: 0,
       checked: false,
       liveUsers: [], 
-    }; 
+    };
   };
 
   handleChange = name => event => {
@@ -34,12 +34,14 @@ class Invite extends Component {
         }
       })
     })
+    .catch(err=>console.log(err))
   }    
     
   
     render(){
-      let users = this.state.liveUsers
-      console.log(users);
+      
+      let users = this.state.liveUsers;
+      console.log(users, "Invite JS");
       return (
         <div className='page-body'>
           <Paper style={styles.Paper}>
@@ -53,7 +55,8 @@ class Invite extends Component {
           </Paper>
           <br />
           <FriendsList
-           users = {users}
+           users = {this.state.liveUsers}
+           handleChange = {this.state.handleChange}
            />
           
         </div>
