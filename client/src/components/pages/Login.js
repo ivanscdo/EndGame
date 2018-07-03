@@ -11,13 +11,9 @@ import { Paper, Typography } from '@material-ui/core';
 import './PageBody.css';
 // import keys from "../../keys";
 
-// console.log("Hello",FB.api);
-
 firebase.initializeApp({
-  // apiKey: keys.FB.api,
-  // authDomain: keys.FB.auth
   apiKey: "AIzaSyDYTXe8VuIi0gdZVfI1V1kHpJ2N9Xj23-I",
- authDomain: "endgame-1529521978924.firebaseapp.com"
+  authDomain: "endgame-1529521978924.firebaseapp.com"
 })
 
 const styles = {
@@ -38,7 +34,7 @@ class Login extends Component {
   }
   uiConfig = {
     signInFlow: "popup",
-    signInSuccessUrl:"http://localhost:3000",
+    signInSuccessUrl: window.location,
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,

@@ -5,18 +5,41 @@ import Inputs from "../Inputs";
 import TimePicker from "../TimePicker";
 import { Paper, Typography, Grid } from "@material-ui/core";
 import "./PageBody.css";
+import API from "../../utils/API";
 
 const styles = {
   Paper: { padding: 20, width: 600, margin: 'auto' },
 }
 
-class Invite extends Component { 
-
-  state = {
-    //isSignedIn: true,
-    //user: {}
-  }
-
+  class Invite extends Component { 
+    constructor(props) {
+      super(props); 
+      this.state = {
+        isSignedIn: true,
+        user: {},
+        value: 0,
+        checked: false,
+        liveUsers: [], 
+      };
+    };
+  
+    handleChange = name => event => {
+      this.setState({ [name]: event.target.checked = true });
+    };
+  
+    componentDidMount() {
+      API.getUsers()
+      .then((response)=> {
+        this.setState(()=>{
+          return {
+            liveUsers: response.data
+          }
+        })
+      })
+      .catch(err=>console.log(err))
+    }    
+    
+    
     render(){
       return (
           <div className='page-body'>
@@ -51,4 +74,6 @@ class Invite extends Component {
         )
       }
   }
+
+
 export default Invite;

@@ -1,3 +1,4 @@
+//import FriendsList from "../FriendsList";
 import React, {Component} from "react";
 import firebase from "firebase";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
