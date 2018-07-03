@@ -22,7 +22,6 @@ function FriendsList (props){
   console.log(users, "FriendsList Users");
   
     return (
-      
       <Paper style={styles.Paper}>
         <Typography variant="title" className=/*{classes.title}*/'valueL'>
             Your Available Friends:
@@ -32,7 +31,7 @@ function FriendsList (props){
                     <FormControl component="fieldset">
                     <FormLabel component="legend">Meet UP Instance</FormLabel>
                     <FormGroup>
-                      {props.users.map((item, index) => (
+                      {props.users.map((item, index ) => (
                         <FriendsListItem 
                         key = {item._id}
                         photoURL={item.photoURL}
@@ -46,7 +45,7 @@ function FriendsList (props){
                     </FormGroup>
                     </FormControl>
                   </List>
-            </div>
+                  </div>
       </Paper>
 
     )

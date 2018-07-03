@@ -41,6 +41,7 @@ const styles = {
     
     
     render(){
+      let users = this.state.liveUsers;
       return (
           <div className='page-body'>
             <Grid container spacing={24}> 
@@ -62,7 +63,9 @@ const styles = {
             </Grid>
             <br />
             <Grid item xs={12}>
-            <FriendsList />
+            <FriendsList 
+              users = {this.state.liveUsers}
+              handleChange = {this.state.handleChange}/>
             </Grid>
             <br />
             <Grid item xs={12}>
