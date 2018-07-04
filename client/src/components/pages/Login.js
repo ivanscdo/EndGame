@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom"
+// import Paper from '@material-ui/core/Paper';
 import Home from "./Home";
 import Invite from "./Invite";
 import Result from "./Result";
@@ -96,17 +97,16 @@ class Login extends Component {
           // <img alt="user" src={firebase.auth().currentUser.photoURL} />
           // </div>
         ) :
-          (
-            <Paper style={styles.Paper}>
-              <div className='logo-box' align='center' bottom-margin='10'>
-                <img src='./eglogo.png' width='200'/>
-                <StyledFirebaseAuth 
-                  uiConfig={this.uiConfig}
-                  firebaseAuth={firebase.auth()}
-                />
-              </div>
-            </Paper>
-           )
+          (<Paper style={styles.Paper}>
+            <div className='logo-box' align='center' bottom-margin='10'>
+              <img src='./eglogo.png' width='200'/>
+              <StyledFirebaseAuth 
+                uiConfig={this.uiConfig}
+                firebaseAuth={firebase.auth()}
+              />
+            </div>
+          </Paper>
+         )
           }
         </div>
       )
