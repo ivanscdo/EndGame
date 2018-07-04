@@ -67,10 +67,6 @@ const styles = {
               users = {this.state.liveUsers}
               handleChange = {this.state.handleChange}/>
             </Grid>
-            <br />
-            <Grid item xs={12}>
-            <Inputs />
-            </Grid>
 
             </Grid>
           </div>
