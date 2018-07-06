@@ -38,7 +38,7 @@ module.exports = {
     groupLocation: function(req,res){
       console.log("get the group Location", req.body)
       db
-        .find({"eamil": {$in: req.body}})
+        .find({"email": {$in: req.body}})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err))
     }
