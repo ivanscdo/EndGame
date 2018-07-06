@@ -18,14 +18,14 @@ class Invite extends Component {
       isSignedIn: true,
       user: {},
       group: [],
-      checked: false,
+      checked: false || true,
       liveUsers: [],
       handleChange: this.handleChange
     };
   };
 
   componentWillUpdate(nextProps, nextState){
-    console.log("Invite Js line 27", nextState);
+    console.log("Invite Js line 27", nextState.group);
     // this.props.groupStateUpdate(this.state.group);
   }
 
@@ -39,13 +39,15 @@ class Invite extends Component {
   handleChange = event => {
     var tempArr= [];
     console.log(event.target);
-    if(this.state.checked === false){
-      tempArr= [...this.state.group, event.target.value]
+    if(event.target.checked === true){
+      tempArr= [...this.state.group, event.target.value];
       this.setState({ 
         group: tempArr,
         checked: true
       });
-    } else if (this.state.checked === true) {
+      //event.target.checked = true;
+      console.log(tempArr, "You checked one");
+    } else if (event.target.checked === false) {
       tempArr = [...this.state.group];
       let index = tempArr.indexOf(event.target.value);
       tempArr.splice(index, 1);
@@ -53,9 +55,11 @@ class Invite extends Component {
         group: tempArr,
         checked: false
       });
+      //event.target.checked = false;
+      console.log(tempArr, "you unchecked one");
     }
-    console.log("this is tempARRY",tempArr);
-    console.log(this.state.group);
+    //console.log("this is tempARRY",tempArr);
+    //console.log(this.state.group);
   };
 
   componentDidMount() {

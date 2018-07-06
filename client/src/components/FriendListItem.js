@@ -32,9 +32,9 @@ function FriendListItem (props){
         <FormControlLabel
         control={
             <Checkbox
-                unchecked={props.checked}
-                onChange={props.handleChange}
-                value={props.email}
+            checked={props.checked}
+            onChange={props.handleChange}
+            value={props.email}
             />
         }
             label="Invite"
