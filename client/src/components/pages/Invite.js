@@ -32,6 +32,10 @@ class Invite extends Component {
   handleGroupSubmit = (e) => {
     e.preventDefault();
     console.log("In Submit Function");
+    let array = [...this.state.group];
+    API.groupLocation({"eamil": {$in: array}})
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err))
    
   }
   
