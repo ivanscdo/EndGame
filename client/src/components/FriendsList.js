@@ -1,8 +1,7 @@
 import React from 'react';
-// import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
 // import Button from '@material-ui/core/Button';
 import InviteButton from './InviteButton';
 import List from '@material-ui/core/List';
@@ -21,36 +20,16 @@ function FriendsList (props){
   //users = props.liveUsers;
   // const users = props.liveUsers;
   //["0"].date
-  // let users = props.users;
-  //console.log(users, "FriendsList Users");
+  let users = props.users;
+  console.log(users, "FriendsList Users");
   
     return (
-      
-    <div className='page-body'> 
-      <Paper style={styles.Paper}>
-        <form className=/*{classes.container} noValidate*/ 'valueS'>
-          <TextField
-            id="datetime-local"
-            label="Next appointment"
-            type="datetime-local"
-            defaultValue="2017-05-24T10:30"
-            className=/*{classes.textField}*/ 'valueP'
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        </form>
-        <br />
-      </Paper>    
-
-    <br />
-
       <Paper style={styles.Paper}>
         <Typography variant="title" className=/*{classes.title}*/'valueL'>
             Your Available Friends:
         </Typography>
             <div className=/*{classes.demo}*/'valueD'>
-              <form onSubmit={props.submit}>
+            <form onSubmit={props.submit}>
                     <List /*dense={dense}*/ className='valueK'>
                     
                       <FormControl component="fieldset"> 
@@ -77,10 +56,10 @@ function FriendsList (props){
                       </button> */}
                       </FormControl>
                   </List>
-                 </form> 
-            </div>
+                 </form>
+                  </div>
       </Paper>
-    </div>
+
     )
 }
 

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import FriendsList from "../FriendsList";
 // import InviteButton from '../InviteButton';
-// import TimePicker from "../TimePicker";
-import { Paper, Typography } from "@material-ui/core";
+import TimePicker from "../TimePicker";
+import { Paper, Typography, Grid } from "@material-ui/core";
 import "./PageBody.css";
 import API from "../../utils/API";
 
@@ -72,39 +72,50 @@ class Invite extends Component {
       })
     })
     .catch(err=>console.log(err))
-  }    
+  } 
     
     render(){
-      
       let users = this.state.liveUsers;
-      console.log(users, "Invite JS");
       return (
         <div className='page-body'>
-          <Paper style={styles.Paper}>
-            {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
-            <Typography variant='Title'>
-              <img alt="user" width="50px" margin='5px'src={firebase.auth().currentUser.photoURL} />
-              Welcome {firebase.auth().currentUser.displayName}! You are signed in.
-            </Typography> 
-          <br/>
+          <Grid container spacing={24}> 
+          <Grid item xs={12}> 
+              <Paper style={styles.Paper}>
+                {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
+                  <Typography variant='Title'>
+                  <img alt="user" width="50px" margin='5px'src={firebase.auth().currentUser.photoURL} />
+                  Welcome {firebase.auth().currentUser.displayName}! You are signed in.
+                  </Typography> 
+              <br />
+
             <Typography variant='display1'>Invite</Typography>
-          </Paper>
+            </Paper>
+          </Grid>
           <br />
-          <FriendsList
-           users = {this.state.liveUsers}
-           handleChange = {this.handleChange}
-           checked = {this.checked}
-           submit = {this.handleGroupSubmit}
-           />
+          <Grid item xs={12}>
+            <TimePicker />    
+          </Grid>
+          <br />
+          <Grid item xs={12}>
+          <FriendsList 
+            users = {this.state.liveUsers}
+            handleChange = {this.state.handleChange}
+            checked = {this.checked}
+            submit = {this.handleGroupSubmit}
+          />
+
+          </Grid>
+
+           <Grid item xs={12}>
+
+
+          </Grid>
+
+          </Grid>
         </div>
       )
-    }
+      }
   }
 
-  //           <Inputs />
 
-  //         </div>
-  //       )
-  //     }
-  // }
 export default Invite;
