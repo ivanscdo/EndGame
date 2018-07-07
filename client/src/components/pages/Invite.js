@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import FriendsList from "../FriendsList";
-import InviteButton from '../InviteButton';
 import TimePicker from "../TimePicker";
 import { Paper, Typography, Grid } from "@material-ui/core";
 import "./PageBody.css";
@@ -72,7 +71,6 @@ const styles = {
                   users = {this.state.liveUsers}
                   handleChange = {this.state.handleChange}
                  />
-
               </Grid>
 
             </Grid>

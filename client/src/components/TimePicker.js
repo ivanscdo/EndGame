@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 
+
 const styles = {
-  Paper: { padding: 20, width: 600, margin: "auto" },
+  Paper: { padding: 20, width: 600, margin: 'auto' },
   }
 
 
@@ -26,9 +27,8 @@ class TimePicker extends Component {
             />
           </form>
           <br />
-        </Paper>
-
-
+        </Paper>  
+        
       )   
   }
 }

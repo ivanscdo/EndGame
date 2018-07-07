@@ -39,7 +39,6 @@ function FriendsList (props){
                         email={item.email}
                         online={item.isSignedIn}
                         checked={props.handleChange}
-
                         >
                         </FriendsListItem>
                       ))}
