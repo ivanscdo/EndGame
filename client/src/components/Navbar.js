@@ -10,6 +10,7 @@ import { Typography } from "@material-ui/core";
 import UserMenuButton from './material-ui-test/UserMenuButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Grid from '@material-ui/core/Grid';
 
 
 
@@ -27,9 +28,9 @@ const styles = {
   },
 };
 
-const buttonStyle = {
-  justifyContent: 'end'
-}
+// const buttonStyle = {
+//   justifyContent: 'end'
+// }
 
 function HomeIcon(props) {
   return (
@@ -123,22 +124,28 @@ class Navbar extends Component {
         style={{
           // width:"fit-content",
           // margin: "auto",
-          // display:"block"
-          buttonStyle
+          // display:"block",
+          // justifyContent: "flex-end"
+          // buttonStyle
         }}
       >
 
         {/* <UserMenuButton /> */}
 
-          
+      <Grid
+        container
+        spacing={24}
+        justify="space-between"
+      >
+      <Grid item xs={3}>
         <Link to="/">
           <Button
-            variant='title'
+            variant='headline'
             color='primary'
             style={{
               margin:2,
               alignContent:'center',
-              justifyContent:'start'
+              // justifyContent:'end'
             }}
             aria-label="edit"
             className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }
@@ -146,6 +153,9 @@ class Navbar extends Component {
             <span> End Game </span>
           </ Button>
         </Link>
+      </Grid>
+        {/* <Grid item xs={6}>
+        </Grid> */}
 
         {/* <Link to="/">
           <Button
@@ -192,17 +202,20 @@ class Navbar extends Component {
           {/* <Button variant="fab" style={{margin:2, alignContent:'center' }} aria-label="edit" className="active nav-link">
             <User style={iconsStyle} src={firebase.auth().currentUser.photoURL}/>
         </Button> */}
-
+      <Grid item xs={3}>
         <Button
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
           variant="fab"
-          // style={{
-          //   margin:2,
-          //   alignContent:'center', 
-          //   justifyContent:'end'
-          // }}
+          style={{
+            margin:2,
+            alignContent:'center', 
+            // justifyContent:'end'
+            // justify:"flex-end"
+            flexBasis: "0"
+
+          }}
           // className="buttonStyle" 
           // style={buttonStyle}
           aria-label="edit"
@@ -235,7 +248,10 @@ class Navbar extends Component {
             <Link  to="/invite">
               <div
                 variant="fab"
-                style={{ margin:2, alignContent:'center' }}
+                style={{
+                  margin:2,
+                  alignContent:'center'
+              }}
                 aria-label="edit"
                 className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }
               >
@@ -248,7 +264,10 @@ class Navbar extends Component {
             <Link onClick={()=>this.handleSignOut()} to="/">
               <div
                 variant="fab"
-                style={{ margin:2, alignContent:'center' }}
+                style={{
+                  margin:2,
+                  alignContent:'center'
+                }}
                 aria-label="edit"
                 className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }
               >
@@ -258,7 +277,11 @@ class Navbar extends Component {
             </Link>
           </MenuItem>
         </Menu>
+      </Grid>
+
+      </Grid>
       </div> 
+
     )
   }
 }
