@@ -35,8 +35,9 @@ class Invite extends Component {
   handleGroupSubmit = (e) => {
     e.preventDefault();
     console.log("In Submit Function");
-    let array = [...this.state.group];
-    API.groupLocation({"email": {$in: array}})
+    let array = this.state.group;
+
+    API.groupLocation({ group: array })
     .then(res => {
       console.log("we are back after getting data",res.data)
       let coords = [];
