@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Home from "./Home";
 import Invite from "./Invite";
 import Result from "./Result";
@@ -8,6 +8,7 @@ import Navbar from "../Navbar";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import API from "../../utils/API";
+import Paper from '@material-ui/core/Paper';
 import './PageBody.css';
 // import keys from "../../keys";
 
