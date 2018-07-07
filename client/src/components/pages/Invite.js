@@ -7,7 +7,7 @@ import TimePicker from "../TimePicker";
 import { Paper, Typography, Grid } from "@material-ui/core";
 import "./PageBody.css";
 import API from "../../utils/API";
-import Result from "./Result";
+//import Result from "./Result";
 
 import getLatLngCenter from "../Algorithm.js";
 // import { get } from "mongoose";
@@ -40,7 +40,6 @@ class Invite extends Component {
     e.preventDefault();
     console.log("In Submit Function");
     let array = this.state.group;
-
     API.groupLocation({ group: array })
     .then(res => {
       console.log("we are back after getting data",res.data)
