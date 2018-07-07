@@ -272,7 +272,7 @@ class Navbar extends Component {
                 className={window.location.pathname === "/result" ? "active nav-link" : "nav-link" }
               >
                 {/* Settings */}
-                <GroupIcon style={iconsStyle} />
+                <Public style={iconsStyle} />
               </div>
             </Link>
           </MenuItem>
