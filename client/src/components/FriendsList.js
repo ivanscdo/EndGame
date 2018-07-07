@@ -1,8 +1,6 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import InviteButton from './InviteButton';
 import List from '@material-ui/core/List';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -12,8 +10,8 @@ import FriendsListItem from './FriendListItem';
 
 
 const styles = {
-  Paper: { padding: 20, width: 600, margin: 'auto'  },
-  Button: { backgroundColor: '#26C6DA', width: 560 }
+  Paper: { padding: 20, width: 600, margin: 'auto'  }
+  
 }
 
 function FriendsList (props){
@@ -41,6 +39,7 @@ function FriendsList (props){
                         email={item.email}
                         online={item.isSignedIn}
                         checked={props.handleChange}
+
                         >
                         </FriendsListItem>
                       ))}
