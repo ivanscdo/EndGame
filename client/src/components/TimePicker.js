@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 
 const styles = {
-  Paper: { padding: 20, width: 600, align: "center" },
+  Paper: { padding: 20, width: 600, margin: "auto" },
   }
 
 
@@ -11,8 +11,6 @@ class TimePicker extends Component {
 
   render() { 
     return ( 
-
-      <div className='page-body'> 
 
         <Paper style={styles.Paper}>
           <form className=/*{classes.container} noValidate*/ 'valueS'>
@@ -28,8 +26,9 @@ class TimePicker extends Component {
             />
           </form>
           <br />
-        </Paper>  
-      </div>  
+        </Paper>
+
+
       )   
   }
 }

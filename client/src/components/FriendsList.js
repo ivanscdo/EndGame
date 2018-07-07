@@ -23,11 +23,11 @@ function FriendsList (props){
   
     return (
       <Paper style={styles.Paper}>
-        <Typography variant="title" className=/*{classes.title}*/'valueL'>
+        <Typography variant="title">
             Your Available Friends:
         </Typography>
             <div className=/*{classes.demo}*/'valueD'>
-                  <List /*dense={dense}*/ className='valueK'>
+                  <List className='valueK'>
                     <FormControl component="fieldset">
                     <FormLabel component="legend"></FormLabel>
                     <FormGroup>

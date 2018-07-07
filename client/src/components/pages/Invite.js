@@ -45,7 +45,8 @@ const styles = {
       return (
           <div className='page-body'>
             <Grid container spacing={24}> 
-            <Grid item xs={12}> 
+
+              <Grid item xs={12}> 
                 <Paper style={styles.Paper}>
                   {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
                     <Typography variant='Title'>
@@ -54,26 +55,25 @@ const styles = {
                     </Typography> 
                 <br />
 
-              <Typography variant='display1'>Invite</Typography>
-              </Paper>
-            </Grid>
-            <br />
-            <Grid item xs={12}>
-              <TimePicker />    
-            </Grid>
-            <br />
-            <Grid item xs={12}>
-            <FriendsList 
-              users = {this.state.liveUsers}
-              handleChange = {this.state.handleChange}
-            />
+                    <Typography variant='display1'>Invite</Typography>
+                </Paper>
+              </Grid>
 
-            </Grid>
+              <br />
+            
+              <Grid item xs={12}>
+                <TimePicker />    
+              </Grid>
 
-             <Grid item xs={12}>
+              <br />
 
+              <Grid item xs={12}>
+                <FriendsList 
+                  users = {this.state.liveUsers}
+                  handleChange = {this.state.handleChange}
+                 />
 
-            </Grid>
+              </Grid>
 
             </Grid>
           </div>
