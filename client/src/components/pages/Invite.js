@@ -3,6 +3,7 @@ import {Redirect} from "react-router";
 import firebase from "firebase";
 import FriendsList from "../FriendsList";
 // import InviteButton from '../InviteButton';
+import Result from './Result';
 import TimePicker from "../TimePicker";
 import { Paper, Typography, Grid } from "@material-ui/core";
 import "./PageBody.css";
@@ -115,8 +116,8 @@ class Invite extends Component {
       const{redirect, calculatedCenter} = this.state
       if (redirect)
           return(<Redirect to={{
-            pathname: '/',
-            state: {referrer: this.state.calculatedCenter}
+            pathname: '/result',
+            state: {calculatedCenter: this.state.calculatedCenter}
           }} />)
       return (
         <div className='page-body'>
