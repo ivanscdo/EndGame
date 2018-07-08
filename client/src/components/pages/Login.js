@@ -8,11 +8,8 @@ import Invite from "./Invite";
 import Result from "./Result";
 import API from "../../utils/API";
 import { Paper, Typography } from '@material-ui/core';
-// import './PageBody.css';
-// import keys from "../../keys";
 import Grid from '@material-ui/core/Grid';
-// import './firebaseui-styling.global.css';
-// import styles from "./firebaseAuth.css";
+
 
 
 firebase.initializeApp({
@@ -20,16 +17,7 @@ firebase.initializeApp({
   authDomain: "endgame-1529521978924.firebaseapp.com"
 })
 
-// const styles = {
-//   Paper: { 
-//     padding: 20, 
-//     width: 300, 
-//     margin: 'auto', 
-//     paddingTop: 30
 
-
-//   },
-// }
 
 class Login extends Component {
 
@@ -73,15 +61,6 @@ class Login extends Component {
       }
   }
 
-  
-
-    // loadUsers = () => {
-    //   API.getUsers()
-    //   .then(res =>
-    //     this.setState({ isSignedIn: true })
-    //   )
-    //   .catch(err => console.log(err));
-    // }
   render(){
     return (
       <div className="App">
@@ -94,39 +73,17 @@ class Login extends Component {
               <Route exact path="/result" component={Result} />
             </div>
           </Router>
-            // <div>
-            // <div>Signed In! </div>
-            // <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button>
-            // <h1>Welcome {firebase.auth().currentUser.displayName} </h1>
-            // <img alt="user" src={firebase.auth().currentUser.photoURL} />
-            // </div>
         ) : (
-          // <Paper
-          //   // style={
-          //   //   // styles.Paper
-          //   // }
-          // >
-            // <div
-            //   // className='logo-box'
-            //   // align='center'
-            //   // bottom-margin='10'
-            // >
-            //   <img
-            //     src='./eglogo.png'
-            //     width='200'
-            //   />
-            //   <StyledFirebaseAuth 
-            //     uiConfig={this.uiConfig}
-            //     firebaseAuth={firebase.auth()}
-            //   />
-            // </div>
-          // </Paper>
           <Grid
             container
+            spacing="40"
             direction="column"
             alignItems="center"
             justify="center"
           >
+          <Grid item></Grid>
+          <Grid item></Grid>
+          <Grid item></Grid>
           <Grid item></Grid>
             <Paper>
               <Grid item>
@@ -150,15 +107,12 @@ class Login extends Component {
                 />  
               </Grid>
             </Paper>
-          <Grid item></Grid>
-
           </Grid>
-
         )}
       </div>
     )
   }
 }
-  
-  export default Login;
+
+export default Login;
 
