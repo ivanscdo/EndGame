@@ -186,6 +186,21 @@ class Navbar extends Component {
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={this.handleClose}>
+                  <Link  to="/result">
+                    <div
+                    variant="fab"
+                    style={{
+                      margin:2,
+                      alignContent:'center'
+                    }}
+                    aria-label="edit"
+                    className={window.location.pathname === "/result" ? "active nav-link" : "nav-link" }
+                    >
+                      <Public style={iconsStyle} />
+                    </div>
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={this.handleClose}>
                   <Link onClick={()=>this.handleSignOut()} to="/">
                     <div
                       variant="fab"
