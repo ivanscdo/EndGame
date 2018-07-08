@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import FriendsList from "../FriendsList";
+<<<<<<< HEAD
 // import InviteButton from '../InviteButton';
+=======
+>>>>>>> 57b06e9a1ad2c33bd955f1b25ea17adb656bd7bb
 import TimePicker from "../TimePicker";
 import { Paper, Typography, Grid } from "@material-ui/core";
 import "./PageBody.css";
@@ -45,7 +48,8 @@ const styles = {
       return (
           <div className='page-body'>
             <Grid container spacing={24}> 
-            <Grid item xs={12}> 
+
+              <Grid item xs={12}> 
                 <Paper style={styles.Paper}>
                   {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
                     <Typography variant='Title'>
@@ -54,6 +58,7 @@ const styles = {
                     </Typography> 
                 <br />
 
+<<<<<<< HEAD
               <Typography variant='display1'>Invite</Typography>
               </Paper>
             </Grid>
@@ -69,11 +74,30 @@ const styles = {
             />
 
             </Grid>
+=======
+                    <Typography variant='display1'>Invite</Typography>
+                </Paper>
+              </Grid>
+>>>>>>> 57b06e9a1ad2c33bd955f1b25ea17adb656bd7bb
 
-             <Grid item xs={12}>
+              <br />
+            
+              <Grid item xs={12}>
+                <TimePicker />    
+              </Grid>
 
+              <br />
 
+<<<<<<< HEAD
             </Grid>
+=======
+              <Grid item xs={12}>
+                <FriendsList 
+                  users = {this.state.liveUsers}
+                  handleChange = {this.state.handleChange}
+                 />
+              </Grid>
+>>>>>>> 57b06e9a1ad2c33bd955f1b25ea17adb656bd7bb
 
             </Grid>
           </div>
@@ -82,4 +106,8 @@ const styles = {
   }
 
 
+<<<<<<< HEAD
 export default Invite;
+=======
+export default Invite;
+>>>>>>> 57b06e9a1ad2c33bd955f1b25ea17adb656bd7bb

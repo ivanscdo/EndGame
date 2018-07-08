@@ -1,8 +1,10 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+<<<<<<< HEAD
 import Button from '@material-ui/core/Button';
+=======
+>>>>>>> 57b06e9a1ad2c33bd955f1b25ea17adb656bd7bb
 import InviteButton from './InviteButton';
 import List from '@material-ui/core/List';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -12,8 +14,8 @@ import FriendsListItem from './FriendListItem';
 
 
 const styles = {
-  Paper: { padding: 20, width: 600, margin: 'auto'  },
-  Button: { backgroundColor: '#26C6DA', width: 560 }
+  Paper: { padding: 20, width: 600, margin: 'auto'  }
+  
 }
 
 function FriendsList (props){
@@ -25,11 +27,11 @@ function FriendsList (props){
   
     return (
       <Paper style={styles.Paper}>
-        <Typography variant="title" className=/*{classes.title}*/'valueL'>
+        <Typography variant="title">
             Your Available Friends:
         </Typography>
             <div className=/*{classes.demo}*/'valueD'>
-                  <List /*dense={dense}*/ className='valueK'>
+                  <List className='valueK'>
                     <FormControl component="fieldset">
                     <FormLabel component="legend"></FormLabel>
                     <FormGroup>
