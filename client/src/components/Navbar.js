@@ -9,6 +9,13 @@ import Button from '@material-ui/core/Button';
 import firebase from "firebase";
 import API from "../utils/API";
 
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import { Manager, Target, Popper } from 'react-popper';
+
 
 
 const iconsStyle ={
@@ -18,12 +25,21 @@ const iconsStyle ={
   flexWrap: 'wrap'
 };
 
-const styles = {
+const AvatarStyle = {
   bigAvatar: {
     width: 60,
     height: 60,
   },
 };
+
+const styles = theme => ({
+  paper: {
+    padding: theme.spacing.unit,
+  },
+  popperClose: {
+    pointerEvents: 'none',
+  },
+});
 
 function HomeIcon(props) {
   return (
@@ -52,7 +68,7 @@ function Public(props){
 function User(props){
   return (
     <div >
-      <Avatar alt="User" src={firebase.auth().currentUser.photoURL} style={styles} />
+      <Avatar alt="User" src={firebase.auth().currentUser.photoURL} style={AvatarStyle} />
     </div>
   )
 }
@@ -73,6 +89,7 @@ class Navbar extends Component {
       isSignedIn: true,
       user: firebase.auth().currentUser,
       anchorEl:null,
+      popperOpen: false,
   }
 
   handleClick = event => {
@@ -81,6 +98,14 @@ class Navbar extends Component {
 
   handleClose = () => {
       this.setState({ anchorEl: null });
+  };
+
+  handlePopperOpen = () => {
+    this.setState({ popperOpen: true });
+  };
+
+  handlePopperClose = () => {
+    this.setState({ popperOpen: false });
   };
 
   handleSignOut = () =>{
@@ -94,12 +119,11 @@ class Navbar extends Component {
 
   render(){
     const {anchorEl} = this.state;
-    
-    return (
-      <div
-        className="menuButtons"
-      >
+    const { classes } = this.props;
+    const { popperOpen } = this.state;
 
+    return (
+      <div className="menuButtons">
         <Grid
           container
           justify="space-between"
@@ -155,66 +179,94 @@ class Navbar extends Component {
                   open={Boolean(anchorEl)}
                   onClose={this.handleClose}
                 >
-                <MenuItem onClick={this.handleClose}>
-                  <Link to="/">
-                    <div
+                  <MenuItem onClick={this.handleClose}>
+                    <Link to="/">
+                      <div
+                        variant="fab"
+                        style={{
+                          margin:2,
+                          alignContent:'center'
+                        }}
+                        aria-label="edit"
+                        className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }
+                      >
+                        <HomeIcon style={iconsStyle}/>
+                      </div>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={this.handleClose}>
+                    <Link to="/invite">
+                      <div
+                        variant="fab"
+                        style={{
+                          margin:2,
+                          alignContent:'center'
+                      }}
+                        aria-label="edit"
+                        className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }
+                      >
+                        <GroupIcon style={iconsStyle} />
+                      </div>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={this.handleClose}>
+                    <Link  to="/result">
+                      <div
                       variant="fab"
                       style={{
                         margin:2,
                         alignContent:'center'
                       }}
                       aria-label="edit"
-                      className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }
+                      className={window.location.pathname === "/result" ? "active nav-link" : "nav-link" }
+                      >
+                        <Public style={iconsStyle} />
+                      </div>
+                    </Link>
+                  </MenuItem>
+                  <Manager>
+                    <Target> 
+                      <MenuItem
+                        onClick={this.handleClose}
+                        aria-describedby="react-popper-tooltip"
+                        onMouseOver={this.handlePopperOpen}
+                        onMouseOut={this.handlePopperClose}
+                      >
+                        <Link onClick={()=>this.handleSignOut()} to="/">
+                          <div
+                            variant="fab"
+                            style={{
+                              margin:2,
+                              alignContent:'center'
+                            }}
+                            aria-label="edit"
+                            className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }
+                          >
+                              <Logout style={iconsStyle} />
+                          </div>
+                        </Link>
+                      </MenuItem>
+                    </Target>
+                    <Popper
+                      // placement="top"
+                      eventsEnabled={popperOpen}
+                      className={!popperOpen ? classes.popperClose : ''}
                     >
-                      <HomeIcon style={iconsStyle}/>
-                    </div>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={this.handleClose}>
-                  <Link to="/invite">
-                    <div
-                      variant="fab"
-                      style={{
-                        margin:2,
-                        alignContent:'center'
-                    }}
-                      aria-label="edit"
-                      className={window.location.pathname === "/invite" ? "active nav-link" : "nav-link" }
-                    >
-                      <GroupIcon style={iconsStyle} />
-                    </div>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={this.handleClose}>
-                  <Link  to="/result">
-                    <div
-                    variant="fab"
-                    style={{
-                      margin:2,
-                      alignContent:'center'
-                    }}
-                    aria-label="edit"
-                    className={window.location.pathname === "/result" ? "active nav-link" : "nav-link" }
-                    >
-                      <Public style={iconsStyle} />
-                    </div>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={this.handleClose}>
-                  <Link onClick={()=>this.handleSignOut()} to="/">
-                    <div
-                      variant="fab"
-                      style={{
-                        margin:2,
-                        alignContent:'center'
-                      }}
-                      aria-label="edit"
-                      className={window.location.pathname === "/" ? "active nav-link" : "nav-link" }
-                    >
-                      <Logout style={iconsStyle}/>
-                    </div>
-                  </Link>
-                </MenuItem>
+                      <Grow in={popperOpen} 
+                        // style={{ transformOrigin: 'bottom right' }}
+                      >
+                        <Paper
+                          id="react-popper-tooltip"
+                          className={classes.paper}
+                          role="tooltip"
+                          aria-hidden={!popperOpen}
+                          elevation={8}
+                        >
+                          <Typography color="error"> Logout </Typography>
+                        </Paper>
+                      </Grow>
+                    </Popper>
+                  </Manager>
                 </Menu>
               </Grid>
             </Grid>
@@ -225,4 +277,8 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Navbar);
