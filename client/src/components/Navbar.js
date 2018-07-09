@@ -140,7 +140,7 @@ class Navbar extends Component {
       <Grid item xs={3}>
         <Link to="/">
           <Button
-            variant='headline'
+            variant='text'
             color='primary'
             style={{
               margin:2,
