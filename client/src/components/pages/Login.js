@@ -9,6 +9,7 @@ import Result from "./Result";
 import API from "../../utils/API";
 import { Paper, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import './PageBody.css';
 
 
 
@@ -90,10 +91,12 @@ class Login extends Component {
                   alignItems="center"
                   justify="center"
                 > 
+                <Grid item></Grid>
                   <Grid item>
                     <img
                       src='./eglogo.png'
                       width='200'
+                      paddingTop='10px'
                     />
                   </Grid>
                 </Grid>
