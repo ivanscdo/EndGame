@@ -32,24 +32,26 @@ render (){
   
       <Paper style={styles.Paper}>
 
-        <Typography variant='title'>
+        {/* <Typography variant='title'>
           <img alt="user" width="50px" margin='5px' src={firebase.auth().currentUser.photoURL} />
           Welcome {firebase.auth().currentUser.displayName}! You are signed in.
-        </Typography> 
+        </Typography>  */}
         <br />
 
-        <Typography variant='display1'>Result</Typography>
+        <Typography variant='display1'>There is nothing to show here</Typography>
       </Paper>
 
       <br />
 
-      <h1 style={styles.Map}>There is nothing to show here</h1>
+      {/* <h1 style={styles.Map}>There is nothing to show here</h1> */}
 
     </div>
     ) 
   } else {
     return (
-      <div className='page-body'>
+      <div 
+      // className='page-body'
+      >
   
           <Paper style={styles.Paper}>
   

@@ -51,7 +51,9 @@ class Home extends Component {
 
 render (){
   return (
-    <div className='page-body'>
+    <div 
+    // className='page-body'
+    >
 
         {/* <Paper style={styles.Paper}>
 
@@ -66,7 +68,10 @@ render (){
 
         <br /> */}
 
-        <Map center={this.state.center} style={styles.Map}/>
+        <Map 
+        center={this.state.center} 
+        style={styles.Map}
+        />
 
       </div>
   )

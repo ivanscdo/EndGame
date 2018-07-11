@@ -75,7 +75,7 @@ class Login extends Component {
         ) : (
           <Grid
             container
-            spacing="40"
+            spacing={40}
             direction="column"
             alignItems="center"
             justify="center"

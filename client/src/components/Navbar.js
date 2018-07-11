@@ -113,7 +113,8 @@ class Navbar extends Component {
               <Grid item xs={6} lg={6}>
                 <Link to="/">
                   <Button
-                    variant='headline'
+                    variant='outlined'
+                    // ["text","flat","outlined","contained","raised","fab","extendedFab"].
                     color='primary'
                     style={{
                       margin:2,
@@ -155,7 +156,7 @@ class Navbar extends Component {
                   open={Boolean(anchorEl)}
                   onClose={this.handleClose}
                 >
-                <MenuItem onClick={this.handleClose}>
+                {/* <MenuItem onClick={this.handleClose}>
                   <Link to="/">
                     <div
                       variant="fab"
@@ -169,7 +170,7 @@ class Navbar extends Component {
                       <HomeIcon style={iconsStyle}/>
                     </div>
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={this.handleClose}>
                   <Link to="/invite">
                     <div
