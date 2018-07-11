@@ -6,8 +6,8 @@ import './PageBody.css';
 
 
 const styles = {
-  Paper: { padding: 20, width: 600, margin: 'auto' },
-  Map: { padding: 20, width: 600, margin: 'auto' },
+  Paper: { padding: 20, width: "100vw", margin: 'auto' },
+  Map: { width: "100vw", margin: 'auto' },
 }
 
 class Result extends Component {
@@ -55,11 +55,11 @@ render (){
   
           <Paper style={styles.Paper}>
   
-            <Typography variant='title'>
+            {/* <Typography variant='title'>
               <img alt="user" width="50px" margin='5px' src={firebase.auth().currentUser.photoURL} />
               Welcome {firebase.auth().currentUser.displayName}! You are signed in.
             </Typography> 
-            <br />
+            <br /> */}
   
             <Typography variant='display1'>Result</Typography>
           </Paper>
