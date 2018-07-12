@@ -111,27 +111,32 @@ class Invite extends Component {
     .catch(err=>console.log(err))
   } 
     
-    render(){
-      let users = this.state.liveUsers;
-      const{redirect, calculatedCenter} = this.state
-      if (redirect)
-          return(<Redirect to={{
-            pathname: '/result',
-            state: {calculatedCenter: this.state.calculatedCenter}
-          }} />)
-      return (
-        <div className='page-body'>
-          <Grid container spacing={24}> 
+  render(){
+    let users = this.state.liveUsers;
+    const{redirect, calculatedCenter} = this.state
+    if (redirect)
+        return(<Redirect to={{
+          pathname: '/result',
+          state: {calculatedCenter: this.state.calculatedCenter}
+        }} />)
+    return (
+      <div 
+        className='page-body'
+      >
+        <Grid 
+          container 
+          spacing={24}
+        > 
           <Grid item xs={12}> 
-              <Paper style={styles.Paper}>
-                {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
-                  {/* <Typography variant='title'>
-                  <img alt="user" width="50px" margin='5px'src={firebase.auth().currentUser.photoURL} />
-                  Welcome {firebase.auth().currentUser.displayName}! You are signed in.
-                  </Typography>  */}
+            <Paper style={styles.Paper}>
+              {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
+                {/* <Typography variant='title'>
+                <img alt="user" width="50px" margin='5px'src={firebase.auth().currentUser.photoURL} />
+                Welcome {firebase.auth().currentUser.displayName}! You are signed in.
+                </Typography>  */}
               <br />
 
-            <Typography variant='display1'>Invite</Typography>
+              <Typography variant='display1'>Invite</Typography>
             </Paper>
           </Grid>
           <br />
@@ -140,25 +145,20 @@ class Invite extends Component {
           </Grid>
           <br />
           <Grid item xs={12}>
-          <FriendsList 
-            users = {this.state.liveUsers}
-            handleChange = {this.state.handleChange}
-            checked = {this.checked}
-            submit = {this.handleGroupSubmit}
-          />
-
+            <FriendsList 
+              users = {this.state.liveUsers}
+              handleChange = {this.state.handleChange}
+              checked = {this.checked}
+              submit = {this.handleGroupSubmit}
+            />
           </Grid>
-
-           <Grid item xs={24}>
-
-
-          </Grid>
-
-          </Grid>
-        </div>
-      )
-      }
+          {/* <Grid item xs={12}>
+                red wine, success!
+          </Grid> */}
+        </Grid>
+      </div>
+    )
   }
-
+}
 
 export default Invite;
