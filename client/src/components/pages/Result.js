@@ -3,6 +3,7 @@ import firebase from "firebase";
 import { Paper, Typography } from '@material-ui/core';
 import  Map from "./../maps/map.js";
 import './PageBody.css';
+// import CardMedia from '@material-ui/core/CardMedia';
 
 
 const styles = {
@@ -38,10 +39,15 @@ render (){
         </Typography>  */}
         <br />
 
-        <Typography variant='display1'>There is nothing to show here</Typography>
+        <Typography variant='display1'>Congrats!!! You found it!</Typography>
+        {/* <img
+          width="200"
+          src="./bermuda-triangle.jpg"
+        /> */}
       </Paper>
 
       <br />
+      <Map center={{lat: 32.3078, lng:-64.7505 }} zoom={ 10 } style={styles.Map}/>
 
       {/* <h1 style={styles.Map}>There is nothing to show here</h1> */}
 
@@ -66,7 +72,7 @@ render (){
   
           <br />
   
-          <Map center={this.state.center} style={styles.Map}/>
+          <Map center={this.state.center} style={styles.Map} zoom={14}/>
   
         </div>
     )
