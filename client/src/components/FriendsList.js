@@ -9,11 +9,30 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FriendsListItem from './FriendListItem';
 
+// breakpoints;media queries
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-const styles = {
-  Paper: { padding: 20, width: "95vw", margin: 'auto'  }
+
+// const styles = {
+//   Paper: { padding: 20, width: "95vw", margin: 'auto'  }
   
-}
+// }
+
+const styles = theme => ({
+  friendslistBreakPoint: {
+    [theme.breakpoints.down('sm')]:{
+      padding: 20, 
+      width: "95vw", 
+      margin: 'auto'
+    },
+    [theme.breakpoints.up('sm')]:{
+      padding: 20, 
+      maxWidth: 600, 
+      margin: 'auto'
+    }
+  }
+});
 
 function FriendsList (props){
   //users = props.liveUsers;
@@ -21,9 +40,13 @@ function FriendsList (props){
   //["0"].date
   let users = props.users;
   console.log(users, "FriendsList Users");
+  const { classes } = props;
   
     return (
-      <Paper style={styles.Paper}>
+      <Paper 
+        // style={styles.Paper}
+        className={classes.friendslistBreakPoint}
+      >
         <Typography variant="title">
             Your Available Friends:
         </Typography>
@@ -63,4 +86,8 @@ function FriendsList (props){
     )
 }
 
-export default FriendsList;
+FriendsList.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(FriendsList);

@@ -13,13 +13,38 @@ import API from "../../utils/API";
 import getLatLngCenter from "../Algorithm.js";
 // import { get } from "mongoose";
 
-const styles = {
-  Paper: { padding: 20, width: "95vw", margin: 'auto' },
-}
+// breakpoints;media queries
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+
+// const style = {
+//   Paper: { 
+//     padding: 20, 
+//     width: "95vw", 
+//     // width: 600, 
+//     margin: 'auto' 
+// },
+// }
+
+const styles = theme => ({
+  inviteBreakPoint: {
+    [theme.breakpoints.down('sm')]:{
+      padding: 20, 
+      width: "95vw", 
+      margin: 'auto'
+    },
+    [theme.breakpoints.up('sm')]:{
+      padding: 20, 
+      maxWidth: 600, 
+      margin: 'auto'
+    }
+  }
+});
 
 class Invite extends Component { 
   constructor(props) {
     super(props); 
+
     this.state = {
       isSignedIn: true,
       user: {},
@@ -114,6 +139,12 @@ class Invite extends Component {
   render(){
     let users = this.state.liveUsers;
     const{redirect, calculatedCenter} = this.state
+    // let classes = this.props.classes;
+    // let {
+    //   inviteBreakPoint 
+    // } = this.props.classes;
+   
+
     if (redirect)
         return(<Redirect to={{
           pathname: '/result',
@@ -127,8 +158,13 @@ class Invite extends Component {
           container 
           spacing={24}
         > 
-          <Grid item xs={12}> 
-            <Paper style={styles.Paper}>
+          <Grid 
+            item xs={12}
+          > 
+            <Paper 
+              // style={style.Paper}
+              className={this.props.classes.inviteBreakPoint}
+            >
               {/* <button className="btn" onClick={()=>firebase.auth().signOut()}> Sign out!</button> */}
                 {/* <Typography variant='title'>
                 <img alt="user" width="50px" margin='5px'src={firebase.auth().currentUser.photoURL} />
@@ -161,4 +197,8 @@ class Invite extends Component {
   }
 }
 
-export default Invite;
+Invite.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Invite);
